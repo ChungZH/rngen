@@ -26,7 +26,7 @@ class Backend : public QObject
   public slots:
     void genNumber(int minn, int maxx)
     {
-        m_number = QRandomGenerator::global()->bounded(minn, maxx);
+        m_number = QRandomGenerator::global()->bounded(minn, maxx + 1);
         emit numberChanged();
     }
 

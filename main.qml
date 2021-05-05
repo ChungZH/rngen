@@ -17,6 +17,7 @@ Window {
         anchors.centerIn: parent
         anchors.margins: 5
         spacing: 20
+
         Grid {
             columns: 2
             spacing: 10
@@ -67,6 +68,8 @@ Window {
             onClicked: {
                 if (endBox.value > startBox.value) {
                     backend.genNumber(startBox.value, endBox.value)
+                } else {
+                    popup.open()
                 }
             }
         }
@@ -81,11 +84,21 @@ Window {
         }
 
         Text {
-            text: "v0.1.0\nby ChungZH"
+            text: "v0.1.0.210505_release"
             color: Material.hintTextColor
             width: parent.width
             horizontalAlignment: Text.AlignRight
             font.pointSize: 10
+            font.italic: true
+        }
+
+        Popup {
+            id: popup
+            modal: true
+            contentItem: Label {
+                text: "不对劲..."
+            }
+            anchors.centerIn: Overlay.overlay
         }
     }
 
